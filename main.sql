@@ -1,0 +1,65 @@
+
+-- Basico
+
+-- SELECT colunas ou *   FROM tabela
+
+SELECT * FROM TABELA_DE_CLIENTES; -- '*' == Todas as colunas
+
+SELECT NOME, CPF, BAIRRO FROM TABELA_DE_CLIENTES;
+
+
+-- AS == Apelidar colunas
+SELECT CPF AS 'DELAS arroz com', NOME AS [Nome dos Clientes] FROM TABELA_DE_CLIENTES;
+
+SELECT CPF AS IDENTIFICADOR, NOME AS [NOME DE CLIENTE], BAIRRO, CIDADE FROM TABELA_DE_CLIENTES AS TDC;
+
+SELECT TABELA_DE_CLIENTES.CPF, TABELA_DE_CLIENTE.NOME 
+FROM TABELA_DE_CLIENTES;
+
+-- Filtros
+--         SELECT [LISTA DE CAMPOS] OU *
+--           FROM [NOME TABELA]
+--             WHERE [FILTRO]
+
+-- Operadores:         >, >=, <, <=, <>, between
+--Operadores Globais: 'in', 'and', 'or', 'not'
+
+
+SELECT * FROM TABELA_DE_CLIENTES WHERE CIDADE = 'RIO DE JANEIRO'
+
+SELECT NOME AS 'NOME CLIENTE', CPF AS 'CERTIFICADO DE PESSOA FISICA', CIDADE AS 'CITY', ESTADO AS 'DF', BAIRRO AS 'POINT'
+FROM TABELA_DE_CLIENTES 
+WHERE ESTADO = 'SP' OR BAIRRO = 'TIJUCA'
+
+
+--LIKE
+--  Usar para achar palavras em colunas  
+
+SELECT * FROM TABELA_DE_PRODUTOS WHERE SABOR IN ('LIMA/LIMAO', 'MORANGO/ LIMAO')
+
+SELECT * FROM TABELA_DE_PRODUTOS WHERE SABOR LIKE '%LIMAO'
+
+
+SELECT COUNT(*) FROM TABELA_DE_CLIENTES WHERE NOME LIKE '%SILVA%'
+
+
+
+--DISTICT 
+--  Valores unicos 
+
+SELECT DISTINCT EMBALAGEM FROM TABELA_DE_PRODUTOS 
+
+
+--TOP X
+--  Os primeiros valores.   Usar para tabelas grandes  
+SELECT TOP 10 * FROM TABELA_DE_CLIENTES 
+
+
+
+
+-- Order By 
+-- Ordenação feita na hora que for 'mostar' os dados
+
+-- ORDER BY coluna (ASC, DESC)     ASC = Crescente, DESC = Decrescente
+
+
